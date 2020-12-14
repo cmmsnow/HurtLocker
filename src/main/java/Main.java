@@ -58,9 +58,7 @@ public class Main {
     public ArrayList<String> getWords(){ //gets all words from raw data
         ArrayList<String> allWords = new ArrayList<>();
         String wordsPattern = "(([a-zA-Z]+)|(\\d[.]\\d{2})|(\\d[/]\\d{2}[/](\\d{4})))";
-        //String groupPattern = "((([a-zA-Z]+)|([a-zA-Z]{2}[0][a-zA-Z]{4})){3}(\\d[.]\\d{2})([a-zA-Z]+){3}(\\d[/]\\d{2}[/](\\d{4})))";
         Pattern pat = Pattern.compile(wordsPattern);
-        //Pattern groupPat = Pattern.compile(groupPattern);
         Matcher matcher = pat.matcher(rawData);
         while (matcher.find()) {
             allWords.add(matcher.group());
