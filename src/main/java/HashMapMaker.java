@@ -64,14 +64,23 @@ public class HashMapMaker {
                         mapForFoodName.put(price, 1); //if no, put in hashmap
                     }
                 }
-                //add expirationDate *****************************
-                if (/*something equals "Expiration*/){
-                    //expiration+1 = Date;
-                    if (mapForFoodName.keySet().contains("Date")){
-                        Integer value = mapForFoodName.get("Date");
-                        mapForFoodName.replace("Date", value+1); //if yes, value++;
+                //add date
+                if (wordList.get(i+5).equalsIgnoreCase("Expiration")) {
+                    String date = wordList.get(i+6);
+                    if (mapForFoodName.keySet().contains(date)){
+                        Integer value = mapForFoodName.get(date);
+                        mapForFoodName.replace(date, value+1); //if yes, value++;
                     } else {
-                        mapForFoodName.put("Date", 1); //if no, put in hashmap
+                        mapForFoodName.put(date, 1); //if no, put in hashmap
+                    }
+                }
+                if (!wordList.get(i+5).equalsIgnoreCase("Expiration")){
+                    String date = wordList.get(i+7);
+                    if (mapForFoodName.keySet().contains(date)){
+                        Integer value = mapForFoodName.get(date);
+                        mapForFoodName.replace(date, value+1); //if yes, value++;
+                    } else {
+                        mapForFoodName.put(date, 1); //if no, put in hashmap
                     }
                 }
             }
