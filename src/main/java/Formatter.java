@@ -15,18 +15,18 @@ public class Formatter {
         for (String k : foodName.keySet()) { keysFoodName.add(k); }
         for (int i=0; i< keysFoodName.size(); i++){
             if (keysFoodName.get(i).matches("([a-zA-Z]+)")){
-                printSection.append("Name:  " + rightAlignString(keysFoodName.get(i)) + " \t \t " + "seen:   " + foodName.get(keysFoodName.get(i)) + " times\n");
+                printSection.append("Name:  " + rightAlignString(keysFoodName.get(i)) + " \t \t " + "Seen:   " + foodName.get(keysFoodName.get(i)) + " times\n");
             }
         }
         printSection.append("--------------- \t \t ---------------\n");
         for (int i=0; i< keysFoodName.size(); i++){
             if (keysFoodName.get(i).matches("(\\d[.]\\d{2})")){
-                printSection.append("Price:     " + (keysFoodName.get(i)) + " \t \t " + "seen:   " + foodName.get(keysFoodName.get(i)) + " times\n");
+                printSection.append("Price:     " + (keysFoodName.get(i)) + " \t \t " + "Seen:   " + foodName.get(keysFoodName.get(i)) + " times\n");
             }
         }
         for (int i=0; i< keysFoodName.size(); i++){
             if (keysFoodName.get(i).matches("(\\d[/]\\d{2}[/](\\d{4}))")){
-                printSection.append("Date: " + keysFoodName.get(i) + " \t \t " + "seen:   " + foodName.get(keysFoodName.get(i)) + " times\n");
+                printSection.append("Date: " + keysFoodName.get(i) + " \t \t " + "Seen:   " + foodName.get(keysFoodName.get(i)) + " times\n");
             }
         }
         printSection.append("=============== \t \t ===============\n");
@@ -38,7 +38,7 @@ public class Formatter {
             HashMap<String, Integer> foodItem = allGroceries.get(k);
             System.out.println(formatMe(foodItem));
         }
-        System.out.println("Errors           \t \t seen:   " + errorCount + " times\n");
+        System.out.println("Errors           \t \t Seen:   " + errorCount + " times\n");
     }
 
 }

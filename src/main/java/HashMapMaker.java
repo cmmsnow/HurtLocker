@@ -29,11 +29,11 @@ public class HashMapMaker {
 
     public Integer countErrors(){
         Integer errors = 0;
-        for (int i=0; i<wordList.size(); i++){
-            if (wordList.get(i)=="Name" && wordList.get(i+1)=="Price") errors++;
-            if (wordList.get(i)=="Price" && wordList.get(i+1)=="Type") errors++;
-            if (wordList.get(i)=="Type" && wordList.get(i+1)=="Expiration") errors++;
-            if (wordList.get(i)=="Expiration" && wordList.get(i+1)=="Name") errors++;
+        for (int i=0; i<wordList.size()-1; i++){
+            if (wordList.get(i).equalsIgnoreCase("Name") && wordList.get(i+1).equalsIgnoreCase("Price")) errors = errors+1;
+            if (wordList.get(i).equalsIgnoreCase("Price") && wordList.get(i+1).equalsIgnoreCase("Type")) errors = errors+1;
+            if (wordList.get(i).equalsIgnoreCase("Type") && wordList.get(i+1).equalsIgnoreCase("Expiration")) errors = errors+1;
+            if (wordList.get(i).equalsIgnoreCase("Expiration") && wordList.get(i+1).equalsIgnoreCase("Name")) errors = errors+1;
         }
         return errors;
     }
