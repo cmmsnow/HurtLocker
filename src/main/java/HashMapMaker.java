@@ -8,10 +8,11 @@ public class HashMapMaker {
     HashMap<String, Integer> cookies;
     HashMap<String, Integer> apples;
     HashMap<String, HashMap<String, Integer>> allGroceries;
-    Integer errorCounter = 0;
+    Integer errorCounter;
 
     public HashMapMaker(ArrayList<String> allWords) {
         wordList = allWords;
+        errorCounter = countErrors();
         milk = createMapForSpecificFood("Milk");
         bread = createMapForSpecificFood("Bread");;
         cookies = createMapForSpecificFood("Cookies");;
@@ -43,12 +44,31 @@ public class HashMapMaker {
         return errorCounter;
     }
 
+    public Integer countErrors(){
+        Integer errors = 0;
+        for (int i=0; i<wordList.size(); i++){
+            if (wordList.get(i)=="Name" && wordList.get(i+1)=="Price") errors++;
+            if (wordList.get(i)=="Price" && wordList.get(i+1)=="Type") errors++;
+            if (wordList.get(i)=="Type" && wordList.get(i+1)=="Expiration") errors++;
+            if (wordList.get(i)=="Expiration" && wordList.get(i+1)=="Name") errors++;
+        }
+        return errors;
+    }
+
     public HashMap<String, Integer> createMapForSpecificFood(String foodName){
         HashMap<String, Integer> mapForFoodName = new HashMap<>();
-        //loop through wordList, checking for foodName
-        //if found, add each present value behind it to hashmap as key with value of 1
-        //if value not present, increment error counter
-        //if key already in hashmap, increment value
+        for (int i=0; i<wordList.size(); i++){
+            if (wordList.get(i).equalsIgnoreCase("Name") && wordList.get(i+1).equalsIgnoreCase(foodName)){
+                //add foodName
+                if ((mapForFoodName.keySet() != null) && (mapForFoodName.keySet().contains(foodName))){
+                    //if yes, value++;
+                } else {
+                    //if no, put in hashmap
+                }
+                //add price
+                //add expirationDate
+            }
+        }
         return mapForFoodName;
     }
 
