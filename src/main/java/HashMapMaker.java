@@ -46,7 +46,7 @@ public class HashMapMaker {
     public HashMap<String, Integer> createMapForSpecificFood(String foodName){
         HashMap<String, Integer> mapForFoodName = new HashMap<>();
         for (int i=0; i<wordList.size(); i++){
-            if (wordList.get(i).equalsIgnoreCase("Name") && !wordList.get(i+1).equalsIgnoreCase("Price")){
+            if (wordList.get(i).equalsIgnoreCase("Name") && wordList.get(i+1).equalsIgnoreCase(foodName)){
                 //add foodName
                 if ((mapForFoodName.keySet() != null) && (mapForFoodName.keySet().contains(foodName))){
                     Integer value = mapForFoodName.get(foodName);

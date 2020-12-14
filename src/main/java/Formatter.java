@@ -6,10 +6,10 @@ public class Formatter {
     public Formatter() {}
 
     public String rightAlignString (int width, String s) { // right align format in 8 spaces
-        return String.format("%" + width + s);
+        return ("%" + width + s);
     }
 
-    public StringBuilder formatMe(HashMap<String, Integer> foodName){ // returns 1 inner hashmap fully formatted
+    public String formatMe(HashMap<String, Integer> foodName){ // returns 1 inner hashmap fully formatted
         ArrayList<String> keysFoodName = new ArrayList<>();
         StringBuilder printSection = new StringBuilder();
         for (String k : foodName.keySet()) { keysFoodName.add(k); }
@@ -25,12 +25,12 @@ public class Formatter {
             }
         }
         for (int i=0; i< keysFoodName.size(); i++){
-            if (keysFoodName.get(i).matches("(\\d[/]\\d{2}[/](\\d{4})))")){
+            if (keysFoodName.get(i).matches("(\\d[/]\\d{2}[/](\\d{4}))")){
                 printSection.append("Date: " + keysFoodName.get(i) + " \t \t " + "seen:   " + foodName.get(keysFoodName.get(i)) + " times\n");
             }
         }
         printSection.append("=============== \t \t ===============\n");
-        return printSection;
+        return printSection.toString();
     }
 
     public String finalPrint(HashMap<String, HashMap<String, Integer>> allGroceries, Integer errorCount){

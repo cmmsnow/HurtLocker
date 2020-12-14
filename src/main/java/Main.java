@@ -74,8 +74,9 @@ public class Main {
         //System.out.println(allWords);
         HashMapMaker hashMapMaker = new HashMapMaker(allWords);
         HashMap<String, HashMap<String, Integer>> groceryMap = hashMapMaker.getAllGroceries();
+        System.out.println(groceryMap);
         Integer numOfMissingWords = hashMapMaker.getErrorCounter();
-        //System.out.println(numOfMissingWords);
+        System.out.println(numOfMissingWords);
         Formatter formatter = new Formatter();
         formatter.finalPrint(groceryMap, numOfMissingWords);
     }
