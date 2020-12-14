@@ -3,12 +3,12 @@ import java.util.HashMap;
 
 public class HashMapMaker {
     ArrayList<String> wordList;
+    Integer errorCounter; //considers only missing words as errors
     HashMap<String, Integer> milk;
     HashMap<String, Integer> bread;
     HashMap<String, Integer> cookies;
     HashMap<String, Integer> apples;
     HashMap<String, HashMap<String, Integer>> allGroceries;
-    Integer errorCounter;
 
     public HashMapMaker(ArrayList<String> allWords) {
         wordList = allWords;
@@ -20,29 +20,17 @@ public class HashMapMaker {
         allGroceries = addAllGroceries();
     }
 
-    public HashMap<String, Integer> getMilk() {
-        return milk;
-    }
+    public HashMap<String, Integer> getMilk() { return milk; }
 
-    public HashMap<String, Integer> getBread() {
-        return bread;
-    }
+    public HashMap<String, Integer> getBread() { return bread; }
 
-    public HashMap<String, Integer> getCookies() {
-        return cookies;
-    }
+    public HashMap<String, Integer> getCookies() { return cookies; }
 
-    public HashMap<String, Integer> getApples() {
-        return apples;
-    }
+    public HashMap<String, Integer> getApples() { return apples; }
 
-    public HashMap<String, HashMap<String, Integer>> getAllGroceries() {
-        return allGroceries;
-    }
+    public HashMap<String, HashMap<String, Integer>> getAllGroceries() { return allGroceries; }
 
-    public Integer getErrorCounter() {
-        return errorCounter;
-    }
+    public Integer getErrorCounter() { return errorCounter; }
 
     public Integer countErrors(){
         Integer errors = 0;
@@ -58,15 +46,34 @@ public class HashMapMaker {
     public HashMap<String, Integer> createMapForSpecificFood(String foodName){
         HashMap<String, Integer> mapForFoodName = new HashMap<>();
         for (int i=0; i<wordList.size(); i++){
-            if (wordList.get(i).equalsIgnoreCase("Name") && wordList.get(i+1).equalsIgnoreCase(foodName)){
+            if (wordList.get(i).equalsIgnoreCase("Name") && !wordList.get(i+1).equalsIgnoreCase("Price")){
                 //add foodName
                 if ((mapForFoodName.keySet() != null) && (mapForFoodName.keySet().contains(foodName))){
-                    //if yes, value++;
+                    Integer value = mapForFoodName.get(foodName);
+                    mapForFoodName.replace(foodName, value+1); //if yes, value++;
                 } else {
-                    //if no, put in hashmap
+                    mapForFoodName.put(foodName, 1); //if no, put in hashmap
                 }
                 //add price
-                //add expirationDate
+                if (!wordList.get(i+3).equalsIgnoreCase("Type")){
+                    String price = wordList.get(i+3);
+                    if (mapForFoodName.keySet().contains(price)){
+                        Integer value = mapForFoodName.get(price);
+                        mapForFoodName.replace(price, value+1); //if yes, value++;
+                    } else {
+                        mapForFoodName.put(price, 1); //if no, put in hashmap
+                    }
+                }
+                //add expirationDate *****************************
+                if (/*something equals "Expiration*/){
+                    //expiration+1 = Date;
+                    if (mapForFoodName.keySet().contains("Date")){
+                        Integer value = mapForFoodName.get("Date");
+                        mapForFoodName.replace("Date", value+1); //if yes, value++;
+                    } else {
+                        mapForFoodName.put("Date", 1); //if no, put in hashmap
+                    }
+                }
             }
         }
         return mapForFoodName;
@@ -74,7 +81,10 @@ public class HashMapMaker {
 
     public HashMap<String, HashMap<String, Integer>> addAllGroceries(){
         HashMap<String, HashMap<String, Integer>> groceries = new HashMap<>();
-        //add all foodnames as keys and hashmaps as values
+        groceries.put("Milk", milk);
+        groceries.put("Bread", bread);
+        groceries.put("Cookies", cookies);
+        groceries.put("Apples", apples);
         return groceries;
     }
 
