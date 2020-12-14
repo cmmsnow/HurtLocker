@@ -87,14 +87,4 @@ public class HashMapMaker {
         groceries.put("Apples", apples);
         return groceries;
     }
-
-//    public Integer getOccurencesOfWordInList(ArrayList<String> inputList, String inputWord){
-//        Integer counter = 0;
-//        for (String w : inputList){
-//            if (w.equalsIgnoreCase(inputWord)){
-//                counter++;
-//            }
-//        }
-//        return counter;
-//    }
 }

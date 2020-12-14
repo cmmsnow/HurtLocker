@@ -49,6 +49,8 @@ I also expect you to report on how many exceptions you saw while parsing the dat
 
 GOOD LUCK ZIPCODERS!!!! My the Odds be ever in your favor!!!!
 
+
+
 //    public String readRawDataToString() throws Exception{
 //        ClassLoader classLoader = getClass().getClassLoader();
 //        String result = IOUtils.toString(classLoader.getResourceAsStream("RawData.txt"));
@@ -58,3 +60,13 @@ GOOD LUCK ZIPCODERS!!!! My the Odds be ever in your favor!!!!
 //    public static void main(String[] args) throws Exception{
 //        String output = (new Main()).readRawDataToString();
 //        System.out.println(output);
+
+//    public Integer getOccurencesOfWordInList(ArrayList<String> inputList, String inputWord){
+//        Integer counter = 0;
+//        for (String w : inputList){
+//            if (w.equalsIgnoreCase(inputWord)){
+//                counter++;
+//            }
+//        }
+//        return counter;
+//    }

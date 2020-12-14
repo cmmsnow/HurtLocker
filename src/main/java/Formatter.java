@@ -1,28 +1,34 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Formatter {
 
     public Formatter() {}
 
-    public String leftAlignString (int width, String s) { // left align format in 7 spaces
-        return String.format("%-" + width + s);
-    }
-
     public String rightAlignString (int width, String s) { // right align format in 8 spaces
         return String.format("%" + width + s);
     }
 
     public StringBuilder formatMe(HashMap<String, Integer> foodName){ // returns 1 inner hashmap fully formatted
+        ArrayList<String> keysFoodName = new ArrayList<>();
         StringBuilder printSection = new StringBuilder();
-        printSection.append("\n");
-//        for (String k : allWordsMapped.keySet()){
-//            String formatted = centerString(11, allWordsMapped.get(k));
-//            printer.append("|" + formatted);
-//            int lineLengthCounter = printer.length();
-//            if (lineLengthCounter == 31){
-//                printer.append("|\n");
-//            }
-//        }
+        for (String k : foodName.keySet()) { keysFoodName.add(k); }
+        for (int i=0; i< keysFoodName.size(); i++){
+            if (keysFoodName.get(i).matches("([a-zA-Z]+)")){
+                printSection.append("Name:  " + rightAlignString(8, keysFoodName.get(i)) + " \t \t " + "seen:   " + foodName.get(keysFoodName.get(i)) + " times\n");
+            }
+        }
+        printSection.append("--------------- \t \t ---------------\n");
+        for (int i=0; i< keysFoodName.size(); i++){
+            if (keysFoodName.get(i).matches("(\\d[.]\\d{2})")){
+                printSection.append("Price: " + rightAlignString(8, keysFoodName.get(i)) + " \t \t " + "seen:   " + foodName.get(keysFoodName.get(i)) + " times\n");
+            }
+        }
+        for (int i=0; i< keysFoodName.size(); i++){
+            if (keysFoodName.get(i).matches("(\\d[/]\\d{2}[/](\\d{4})))")){
+                printSection.append("Date: " + keysFoodName.get(i) + " \t \t " + "seen:   " + foodName.get(keysFoodName.get(i)) + " times\n");
+            }
+        }
         printSection.append("=============== \t \t ===============\n");
         return printSection;
     }

@@ -71,10 +71,11 @@ public class Main {
     public static void main(String[] args){
         Main main = new Main();
         ArrayList<String> allWords = main.getAllWords();
-        System.out.println(allWords);
+        //System.out.println(allWords);
         HashMapMaker hashMapMaker = new HashMapMaker(allWords);
         HashMap<String, HashMap<String, Integer>> groceryMap = hashMapMaker.getAllGroceries();
         Integer numOfMissingWords = hashMapMaker.getErrorCounter();
+        //System.out.println(numOfMissingWords);
         Formatter formatter = new Formatter();
         formatter.finalPrint(groceryMap, numOfMissingWords);
     }
