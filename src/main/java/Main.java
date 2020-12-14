@@ -19,13 +19,9 @@ public class Main {
         allWords = getWords();
     }
 
-    public String getRawData() {
-        return rawData;
-    }
+    public String getRawData() { return rawData; }
 
-    public ArrayList<String> getAllWords() {
-        return allWords;
-    }
+    public ArrayList<String> getAllWords() { return allWords; }
 
     private String loadFile(){ //gets raw data
         ClassLoader classLoader = getClass().getClassLoader();
@@ -77,7 +73,9 @@ public class Main {
         ArrayList<String> allWords = main.getAllWords();
         System.out.println(allWords);
         HashMapMaker hashMapMaker = new HashMapMaker(allWords);
-        //HashMap<String, String> groceryList = main.getAllWordsMapped();
-        //System.out.println(main.formatMe());
+        HashMap<String, HashMap<String, Integer>> groceryMap = hashMapMaker.getAllGroceries();
+        Integer numOfMissingWords = hashMapMaker.getErrorCounter();
+        Formatter formatter = new Formatter();
+        formatter.finalPrint(groceryMap, numOfMissingWords);
     }
 }
