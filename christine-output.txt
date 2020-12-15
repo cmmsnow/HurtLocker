@@ -1,0 +1,36 @@
+
+Name:    Apples 	 	 Seen:   4 times
+--------------- 	 	 ---------------
+Price:     0.25 	 	 Seen:   2 times
+Price:     0.23 	 	 Seen:   2 times
+Date: 5/02/2016 	 	 Seen:   2 times
+Date: 1/23/2016 	 	 Seen:   2 times
+=============== 	 	 ===============
+
+Name:   Cookies 	 	 Seen:   8 times
+--------------- 	 	 ---------------
+Price:     2.25 	 	 Seen:   8 times
+Date: 1/25/2016 	 	 Seen:   6 times
+Date: 3/22/2016 	 	 Seen:   2 times
+=============== 	 	 ===============
+
+Name:      Milk 	 	 Seen:   8 times
+--------------- 	 	 ---------------
+Price:     1.23 	 	 Seen:   1 times
+Price:     3.23 	 	 Seen:   5 times
+Date: 1/17/2016 	 	 Seen:   2 times
+Date: 1/25/2016 	 	 Seen:   2 times
+Date: 4/25/2016 	 	 Seen:   2 times
+Date: 1/11/2016 	 	 Seen:   2 times
+=============== 	 	 ===============
+
+Name:     Bread 	 	 Seen:   6 times
+--------------- 	 	 ---------------
+Price:     1.23 	 	 Seen:   6 times
+Date: 1/25/2016 	 	 Seen:   2 times
+Date: 1/02/2016 	 	 Seen:   2 times
+Date: 2/25/2016 	 	 Seen:   2 times
+=============== 	 	 ===============
+
+Errors           	 	 Seen:   4 times
+
